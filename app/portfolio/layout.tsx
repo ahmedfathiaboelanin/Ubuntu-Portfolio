@@ -1,6 +1,17 @@
 import { type Metadata } from 'next'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
+
+import UbuntuHeader from '@/components/UbuntuHeader'
+import UbuntuSidebar from '@/components/UbuntuSidebar'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -23,14 +34,27 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-      <html lang="en">
+    <ClerkProvider>
         <body className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased flex `}>
+          <UbuntuSidebar/>
+          {/* <header className="flex justify-end items-center px-[30px] py-[50px] gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header> */}
           <main className="flex-1 relative">
-            <div className="flex items-center justify-center h-full ">
+            <UbuntuHeader />
+            <div className="flex items-center justify-center h-screen pt-[30px]">
               {children}
             </div>
           </main>
         </body>
-      </html>
+    </ClerkProvider>
   )
 }
+
+
+

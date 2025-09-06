@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 :root {
   --background: #ffffff;
@@ -20,7 +21,25 @@
 }
 
 body {
-  background: var(--background);
+  background: #000000;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: monospace, Helvetica, sans-serif;
+  background-image: url('/ubuntu-bg.png');
+  background-size: cover;
+}
+
+.glass {
+  background-color: rgba(43, 41, 41, 0.7); /* Semi-transparent white */
+  backdrop-filter: blur(10px);
+}
+.glass-dark {
+  background-color: rgba(7, 7, 7, 0.9); /* Darker on hover */
+}
+
+/* full width and full hight and glass effect */
+.full-glass {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(43, 41, 41, 0.7); /* Semi-transparent white */
+  backdrop-filter: blur(10px);
 }
